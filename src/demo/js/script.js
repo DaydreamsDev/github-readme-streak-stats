@@ -15,9 +15,11 @@ const preview = {
     type: "svg",
     exclude_days: "",
     card_width: "495",
+    card_height: "195",
     hide_total_contributions: "false",
     hide_current_streak: "false",
     hide_longest_streak: "false",
+    short_numbers: "false",
   },
 
   /**
@@ -141,7 +143,7 @@ const preview = {
             format: "hexa",
             onChange: `preview.pickerChange(this, '${color1.id}')`,
             onInput: `preview.pickerChange(this, '${color1.id}')`,
-          })
+          }),
         );
         const color2 = document.createElement("input");
         color2.className = "param jscolor";
@@ -152,7 +154,7 @@ const preview = {
             format: "hexa",
             onChange: `preview.pickerChange(this, '${color2.id}')`,
             onInput: `preview.pickerChange(this, '${color2.id}')`,
-          })
+          }),
         );
         rotate.name = color1.name = color2.name = propertyName;
         color1.value = color1Value;
@@ -482,5 +484,5 @@ window.addEventListener(
     // update previews
     preview.update();
   },
-  false
+  false,
 );

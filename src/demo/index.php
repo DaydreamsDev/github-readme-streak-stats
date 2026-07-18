@@ -22,7 +22,7 @@ function camelToSkewer(string $str): string
         function ($matches) {
             return "-" . strtolower($matches[0]);
         },
-        $str
+        $str,
     );
 }
 ?>
@@ -46,7 +46,6 @@ function camelToSkewer(string $str): string
         gtag('config', 'G-48CYVH0XEF');
     </script>
     <title>GitHub Readme Streak Stats Demo</title>
-    <link href="https://css.gg/css?=|moon|sun" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css?v=<?= filemtime("./css/style.css") ?>">
     <link rel="stylesheet" href="./css/toggle-dark.css?v=<?= filemtime("./css/toggle-dark.css") ?>">
 
@@ -120,6 +119,12 @@ function camelToSkewer(string $str): string
                     <?php endforeach; ?>
                 </select>
 
+                <label for="short-numbers">Short Numbers</label>
+                <select class="param" id="short-numbers" name="short_numbers">
+                    <option>false</option>
+                    <option>true</option>
+                </select>
+
                 <label for="date-format">Date Format</label>
                 <select class="param" id="date-format" name="date_format">
                     <option value="">default</option>
@@ -169,6 +174,9 @@ function camelToSkewer(string $str): string
 
                 <label for="card-width">Card Width</label>
                 <input class="param" type="number" id="card-width" name="card_width" placeholder="495" value="495" step="1" min="300" />
+
+                <label for="card-width">Card Height</label>
+                <input class="param" type="number" id="card-width" name="card_height" placeholder="195" value="195" step="1" min="170" />
 
                 <label for="type">Output Type</label>
                 <select class="param" id="type" name="type">
@@ -272,7 +280,13 @@ function camelToSkewer(string $str): string
     </div>
 
     <a href="javascript:toggleTheme()" class="darkmode" title="toggle dark mode">
-        <i class="<?php echo $darkmode === "on" ? "gg-sun" : "gg-moon"; ?>"></i>
+         <span id="darkmode-icon">
+            <?php if ($darkmode === "on"): ?>
+                🌞
+            <?php else: ?>
+                🌙
+            <?php endif; ?>
+         </span>
     </a>
 </body>
 
